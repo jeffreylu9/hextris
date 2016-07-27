@@ -1,5 +1,44 @@
 $(document).ready(function() {
-	initialize();
+    var facevideo_node = document.getElementById("facevideo-node");
+    var detector = new affdex.CameraDetector(facevideo_node, 100, 100);
+    detector.detectAllEmotions();
+    if (detector && !detector.isRunning) {
+        detector.start();
+    }
+    
+    detector.addEventListener("onInitializeSuccess", function() {
+        $("#loader").fadeOut(800, function() {
+            $("body").addClass("loaded");
+        });
+        initialize();
+    });
+    
+    var ROTATE_THRESHOLD = 4;
+    var EMOTION_THRESHOLD = 15;
+    var num_joy_frames = 0;
+    var num_sadness_frames = 0;
+    
+    detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {
+        if (faces[0]) {
+            var emotions = faces[0].emotions;
+            
+            if (emotions["joy"] > EMOTION_THRESHOLD) {
+                if (MainHex && gameState !== 0) {
+                    if (++num_joy_frames === ROTATE_THRESHOLD) {
+                        MainHex.rotate(-1);
+                        num_joy_frames = 0;
+                    }
+                }
+            } else if (emotions["sadness"] > EMOTION_THRESHOLD) {
+                if (MainHex && gameState !== 0) {
+                    if (++num_sadness_frames === ROTATE_THRESHOLD) {
+                        MainHex.rotate(1);
+                        num_sadness_frames = 0;
+                    }
+                }
+            }
+        }
+    });
 });
 function initialize(a) {
 	window.rush = 1;
@@ -157,18 +196,6 @@ function initialize(a) {
 		});
 
 		addKeyListeners();
-		(function(i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-		ga('create', 'UA-51272720-1', 'teamsnowman.github.io');
-		ga('send', 'pageview');
 
 		document.addEventListener("pause", handlePause, false);
 		document.addEventListener("backbutton", handlePause, false);

@@ -39,7 +39,7 @@ function render() {
 			i--;
 		}
 	}
-
+    
 	if ((MainHex.ct < 650 && (gameState !== 0) && !MainHex.playThrough)) {
 		if (MainHex.ct > (650 - 50)) {
 			ctx.globalAlpha = (50 - (MainHex.ct - (650 - 50)))/50;
@@ -72,13 +72,13 @@ function renderBeginningText() {
     var mob, fontSize;
     if(/mobile|Mobile|iOS|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         mob = true;
-        input_text = 'Tap the screen\'s left and ride'
-        action_text = 'sides to rotate the hexagon'
+        input_text = 'Use your facial expression'
+        action_text = 'to rotate the hexagon'
         score_text = 'Match 3+ blocks to score'
         fontSize = 35
     } else {
         mob = false
-        input_text = 'Use the right and left arrow keys'
+        input_text = 'Use your facial expression'
         action_text = 'to rotate the hexagon'
         score_text = 'Match 3+ blocks to score!'
         fontSize = 27
