@@ -16,7 +16,7 @@ $(document).ready(function() {
     var ROTATE_THRESHOLD = 3;
     var EMOTION_THRESHOLD = 15;
     var num_joy_frames = 0;
-    var num_sadness_frames = 0;
+    var num_anger_frames = 0;
     
     detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {        
         if (faces[0]) {
@@ -29,11 +29,11 @@ $(document).ready(function() {
                         num_joy_frames = 0;
                     }
                 }
-            } else if (emotions["sadness"] > EMOTION_THRESHOLD) {
+            } else if (emotions["anger"] > EMOTION_THRESHOLD) {
                 if (MainHex && gameState !== 0) {
-                    if (++num_sadness_frames === ROTATE_THRESHOLD) {
+                    if (++num_anger_frames === ROTATE_THRESHOLD) {
                         MainHex.rotate(1);
-                        num_sadness_frames = 0;
+                        num_anger_frames = 0;
                     }
                 }
             }

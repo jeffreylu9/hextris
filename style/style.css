@@ -225,7 +225,6 @@ button:focus {
 	cursor:pointer;
 	right:0;
 	bottom:0;
-	z-index:99;
 }
 
 #restartBtn {
@@ -239,7 +238,6 @@ button:focus {
 	color:#232323;
 	cursor:pointer;
 	bottom:0;
-	z-index:99;
 }
 #startBtn {
 	position:absolute;
@@ -247,7 +245,7 @@ button:focus {
 	top:38%;
 	height:25%;
 	width:25%;
-	z-index:10000;
+	z-index:3000;
 	cursor:pointer;
 }
 
