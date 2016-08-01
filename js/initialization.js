@@ -13,12 +13,12 @@ $(document).ready(function() {
         initialize();
     });
     
-    var ROTATE_THRESHOLD = 4;
+    var ROTATE_THRESHOLD = 3;
     var EMOTION_THRESHOLD = 15;
     var num_joy_frames = 0;
     var num_sadness_frames = 0;
     
-    detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {
+    detector.addEventListener("onImageResultsSuccess", function(faces, image, timestamp) {        
         if (faces[0]) {
             var emotions = faces[0].emotions;
             

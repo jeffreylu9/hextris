@@ -1,29 +1,45 @@
-Hextris
-==========
+# Hextris
 
-Contributors:
- - Logan Engstrom (@lengstrom)
- - Garrett Finucane (@garrettdreyfus)
- - Noah Moroze (@nmoroze)
- - Michael Yang (@themichaelyang)
+This demo uses Affectiva's JavaScript SDK to enhance the open-source game Hextris with emotion controls. The code is written entirely in JavaScript, HTML, and CSS.
 
-#Contributions
-Please submit pull requests to clay-improvements
+For more information about Affectiva's JavaScript SDK, visit http://developer.affectiva.com/. 
 
-# Releases
-#### iOS: https://itunes.apple.com/us/app/hextris/id903769553?mt=8
-![](http://i.imgur.com/KBYZcf5.png)
+## Try it Now!
 
-#### Android: https://play.google.com/store/apps/details?id=com.hextris.hextris
-![](http://i.imgur.com/mxj8yKs.png)
+Click [here](https://labs.affectiva.com/jssdk-game-demo-adaptive/) to try the demo.
 
-#### Firefox OS: https://marketplace.firefox.com/app/hextris-app
-![](http://i.imgur.com/RhECXPg.png)
+## Running the Demo Locally:
 
-## Press kit
+### Requirements:
 
-http://hextris.github.io/presskit/info.html
+* Python 2.x or higher
+* Supported web browser (Google Chrome, Firefox, or Opera)
 
-## License
+### Getting Started:
 
-This work is under a GPL v3 license.
+* Install [Python](https://www.python.org/downloads/release/python-2710/)
+
+To test if Python is installed, run the following command on either Command Prompt or Terminal:
+
+```
+$ python
+```
+
+* Clone the repository on your local machine
+
+* Open Command Prompt/Terminal and navigate to the folder where the source code was cloned
+* Run a server with the following command:
+
+#### Python 2.x
+
+```
+$ python -m SimpleHTTPServer 8000 
+```
+
+#### Python 3.x
+
+```
+$ python -m http.server 8000 
+```
+
+Once the server is up, open a web browser and navigate to [http://localhost:8000/](http://localhost:8000/). The demo should start loading.
